@@ -7,6 +7,7 @@ export async function getWeather({ lat, lon, location }: { lat: number; lon: num
   }
   const res = await fetch(url);
   const data = await res.json();
+  console.log(data)
   return data
   // const result = WeatherSchema.safeParse(data);
 

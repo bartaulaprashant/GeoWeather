@@ -1,75 +1,114 @@
-# React + TypeScript + Vite
+# GeoWeather
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive weather dashboard built with React, Vite, TypeScript, and Leaflet. It combines live weather data with an interactive map so users can explore current conditions, hourly and daily forecasts, and air quality metrics for different cities and custom map-selected locations.
 
-Currently, two official plugins are available:
+Live Demo: [GeoWeather Demo](https://geoweather.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Interactive map with clickable location selection
+- City-based weather lookup with preloaded locations
+- Current weather panel with condition details
+- Hourly and 3-day forecast cards
+- Air quality and pollution insights
+- Dark themed, responsive dashboard UI
+- Real-time data integration through WeatherAPI and MapTiler
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19
+- Vite
+- TypeScript
+- Tailwind CSS
+- Leaflet + React Leaflet
+- TanStack Query
+- WeatherAPI
+- MapTiler
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Project Showcase
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Desktop View
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+![GeoWeather Desktop Dashboard](docs/screenshots//Screenshot%20From%202026-11-14%2018-37-04.png)
 
+### Mobile View
+
+![GeoWeather Mobile Dashboard](docs/screenshots/Screenshot%20From%202026-11-14%2018-57-10.png)
+
+## Screenshots
+
+![GeoWeather Screenshots](docs/screenshots/Screenshot%20From%202026-11-14%2018-37-38.png)
+
+## How It Works
+
+1. Pick a city from the location selector or click anywhere on the map.
+2. The app fetches weather data for the selected coordinates or city.
+3. The dashboard updates with current conditions, forecast cards, and pollution data.
+4. Map overlays can be toggled to visualize weather layers over the map.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Installation
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+### Environment Variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Create a `.env.local` file in the root of the project and add the following keys:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+VITE_API_KEY=your_weatherapi_key
+VITE_MAPTILER_KEY=your_maptiler_key
 ```
+
+You can obtain:
+
+- a WeatherAPI key from [WeatherAPI](https://www.weatherapi.com/)
+- a MapTiler key from [MapTiler](https://www.maptiler.com/)
+
+### Run the App
+
+```bash
+npm run dev
+```
+
+Open the local URL displayed in the terminal (usually `http://localhost:5173`).
+
+### Production Build
+
+```bash
+npm run build
+```
+
+## Project Structure
+
+```bash
+src/
+  api.ts
+  App.tsx
+  types.ts
+  components/
+    cards/
+    dropdowns/
+    skeletons/
+    ui/
+    Map.tsx
+    MapLegend.tsx
+    SidePanel.tsx
+    WeatherIcon.tsx
+  schemas/
+    weatherSchemas.ts
+public/
+  favicon.svg
+  icons.svg
+```
+
+

@@ -191,7 +191,7 @@ const ForecastDaySchema = z.object({
 export const WeatherSchema = z.object({
   location: z.object({
     name: z.string(),
-    region: z.string(),
+    region: z.string() || "",
     country: z.string(),
     lat: z.number(),
     lon: z.number(),
