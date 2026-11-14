@@ -83,8 +83,8 @@ function App() {
               <AdditionalInfo coords={coords} location={location} />
             </Suspense>
           </div>
-                </div>
         </div>
+      </div>
       <SidePanel
         coords={coords}
         location={location}
